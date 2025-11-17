@@ -79,5 +79,5 @@
 
 1. **Клонируйте репозиторий**:
    ```bash
-   git clone https://github.com/ваш-логин/airport-passenger-flow.git
-   cd airport-passenger-flow
+   git clone https://github.com/Katieolegovna/Repository.git
+   cd Repository
