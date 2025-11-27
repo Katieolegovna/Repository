@@ -43,4 +43,4 @@ df = generate_passenger_data(num_days=30, avg_passengers_per_day=1500)
 # Сохранение в XLSX
 df.to_excel('passenger_data.xlsx', index=False)
 
-print("Данные сохранены в passenger_data.xlsx")
+print("Data saved to passenger_data.xlsx")

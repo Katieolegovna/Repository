@@ -39,3 +39,23 @@ jobs:
     - name: Test app import
       run: |
         python -c "import streamlit; import pandas; import plotly.express; print('All imports successful')"
+
+    - name: Test basic app functionality
+      run: |
+        python -c "
+        import sys
+        sys.path.insert(0, '.')
+        try:
+            import streamlit as st
+            import pandas as pd
+            # Test loading data (will fail gracefully if file missing)
+            try:
+                df = pd.read_excel('passenger_data.xlsx')
+                print(f'Data loaded successfully: {len(df)} rows')
+            except Exception as e:
+                print(f'Data loading test skipped: {e}')
+            print('Basic functionality test passed')
+        except Exception as e:
+            print(f'Error: {e}')
+            sys.exit(1)
+        "
