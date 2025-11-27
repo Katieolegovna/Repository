@@ -11,7 +11,15 @@
 [![Pandas](https://img.shields.io/badge/Pandas-2.3%2B-150458?logo=pandas)](https://pandas.pydata.org)
 [![Plotly](https://img.shields.io/badge/Plotly-6.3%2B-2962FF?logo=plotly)](https://plotly.com/python/)
 
-<br><br>
+<br>
+
+<div align="center">
+  <a href="https://katiekurenkova.streamlit.app/">
+    <img src="https://img.shields.io/badge/🚀_Live_Demo-Streamlit-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white" alt="Live Demo">
+  </a>
+</div>
+
+<br>
 
 <p align="center">
   <a href="#описание-проекта">📋 Описание</a> •
