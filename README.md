@@ -1,11 +1,36 @@
 <!-- README.md -->
 <div align="center" id="top">
-<div id="language-selector" style="position: absolute; top: 20px; right: 20px;">
-  <a href="#ru" onclick="setLanguage('ru')" style="margin-right: 10px;">🇷🇺 Русский</a> | 
-  <a href="#en" onclick="setLanguage('en')">🇬🇧 English</a>
+<div id="language-selector" style="position: absolute; top: 20px; right: 20px; background: white; padding: 5px 10px; border-radius: 15px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); z-index: 1000;">
+  <a href="#" onclick="setLanguage('ru'); return false;" style="margin-right: 10px; text-decoration: none; color: #333; font-weight: 500;">🇷🇺 Русский</a> | 
+  <a href="#" onclick="setLanguage('en'); return false;" style="text-decoration: none; color: #333; font-weight: 500;">🇬🇧 English</a>
 </div>
 
-<div id="ru-content">
+<script>
+function setLanguage(lang) {
+  // Скрываем все языковые блоки
+  document.querySelectorAll('[id$="-content"]').forEach(el => {
+    el.style.display = 'none';
+  });
+  // Показываем выбранный языковой блок
+  const target = document.getElementById(lang + '-content');
+  if (target) target.style.display = 'block';
+  // Сохраняем выбор в localStorage
+  if (typeof(Storage) !== 'undefined') {
+    localStorage.setItem('preferredLanguage', lang);
+  }
+  // Прокручиваем страницу вверх
+  window.scrollTo(0, 0);
+}
+
+// При загрузке страницы проверяем сохраненный язык
+document.addEventListener('DOMContentLoaded', function() {
+  const userLang = localStorage.getItem('preferredLanguage') || 
+                  (navigator.language.startsWith('ru') ? 'ru' : 'en');
+  setLanguage(userLang);
+});
+</script>
+
+<div id="ru-content" style="display: none;">
 # 🛫 Анализ пассажиропотока в аэропорту
 ### <i>Интерактивный дашборд с таблицами и графиками на основе данных о пассажирах</i>
 
@@ -162,10 +187,12 @@ docker-compose up --build
 ---
 
 ## 📝 Лицензия
+[![Streamlit](https://img.shields.io/badge/Streamlit-1.50%2B-FF4B4B?logo=streamlit)](https://streamlit.io)
+[![Pandas](https://img.shields.io/badge/Pandas-2.3%2B-150458?logo=pandas)](https://pandas.pydata.org)
+[![Plotly](https://img.shields.io/badge/Plotly-6.3%2B-2962FF?logo=plotly)](https://plotly.com/python/)
+[![Docker](https://img.shields.io/badge/Docker-2.2%2B-2496ED?logo=docker&logoColor=white)](https://www.docker.com/)
 
-Этот проект распространяется под лицензией [MIT](LICENSE).
-
----
+<br>
 
 <div id="en-content" style="display: none;">
 # 🛫 Airport Passenger Flow Analysis
@@ -181,6 +208,21 @@ docker-compose up --build
 
 <br>
 
+<div align="center">
+  <a href="https://katiekurenkova.streamlit.app/">
+    <img src="https://img.shields.io/badge/🚀_Live_Demo-Streamlit-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white" alt="Live Demo">
+  </a>
+</div>
+
+<br>
+
+<p align="center">
+  <a href="#project-description">📋 Description</a> •
+  <a href="#technologies-used">⚙️ Technologies</a> •
+  <a href="#key-features">🔍 Features</a> •
+  <a href="#how-to-run">🚀 Run</a>
+</p>
+
 ## 📋 Project Description
 > <b>Demonstration of various table and chart variations for airport passenger flow analysis</b>
 
@@ -192,6 +234,7 @@ Project includes:
 ## ⚙️ Technologies Used
 
 | Component | Library/Tool | Purpose |
+|-----------|--------------|---------|
 |----------|--------------|---------|
 | <b>Programming Language</b> | <code>Python 3.9+</code> | Project foundation |
 | <b>Data Generation</b> | <code>pandas</code>, <code>numpy</code> | Synthetic data creation |
@@ -199,6 +242,8 @@ Project includes:
 | <b>Visualization</b> | <code>plotly.express</code>, <code>plotly.graph_objects</code> | Interactive charts |
 | <b>Interface</b> | <code>streamlit</code> | Web application with tables and filters |
 | <b>Containerization</b> | <code>docker</code> | Creating a container for the application |
+
+---
 
 ## 🚀 How to Run
 
@@ -244,6 +289,8 @@ This will automatically build the image and run the container with the correct s
 ## 📝 License
 
 This project is licensed under the [MIT](LICENSE) license.
+
+</div>
 </div>
 
 <script>
