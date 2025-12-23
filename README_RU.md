@@ -19,7 +19,7 @@
     <img src="https://img.shields.io/badge/🚀_Live_Демо-Streamlit-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white" alt="Live Demo">
   </a>
   &nbsp;&nbsp;
-  <a href="https://github.com/yourusername/airport-dashboard/blob/main/README.md">
+  <a href="https://github.com/Katieolegovna/Repository/blob/main/README.md">
     <img src="https://img.shields.io/badge/🇬🇧_English_version-README.md-0077B5?style=for-the-badge" alt="English Version">
   </a>
 </div>
