@@ -1,6 +1,11 @@
 <!-- README.md -->
-<div align="center">
+<div align="center" id="top">
+<div id="language-selector" style="position: absolute; top: 20px; right: 20px;">
+  <a href="#ru" onclick="setLanguage('ru')" style="margin-right: 10px;">🇷🇺 Русский</a> | 
+  <a href="#en" onclick="setLanguage('en')">🇬🇧 English</a>
+</div>
 
+<div id="ru-content">
 # 🛫 Анализ пассажиропотока в аэропорту
 ### <i>Интерактивный дашборд с таблицами и графиками на основе данных о пассажирах</i>
 
@@ -10,6 +15,7 @@
 [![Streamlit](https://img.shields.io/badge/Streamlit-1.50%2B-FF4B4B?logo=streamlit)](https://streamlit.io)
 [![Pandas](https://img.shields.io/badge/Pandas-2.3%2B-150458?logo=pandas)](https://pandas.pydata.org)
 [![Plotly](https://img.shields.io/badge/Plotly-6.3%2B-2962FF?logo=plotly)](https://plotly.com/python/)
+[![Docker](https://img.shields.io/badge/Docker-2.2%2B-2496ED?logo=docker&logoColor=white)](https://www.docker.com/)
 
 <br>
 
@@ -51,6 +57,7 @@
 | <b>Обработка данных</b> | <code>pandas</code>, <code>openpyxl</code> | Чтение/запись Excel, агрегация |
 | <b>Визуализация</b> | <code>plotly.express</code>, <code>plotly.graph_objects</code> | Интерактивные графики |
 | <b>Интерфейс</b> | <code>streamlit</code> | Веб-приложение с таблицами и фильтрами |
+| <b>Контейнеризация</b> | <code>docker</code> | Создание контейнера для приложения |
 
 ---
 
@@ -111,31 +118,173 @@
 
 ---
 
-## 🚀 Как запустить локально
+## 🚀 Как запустить
 
-1. **Клонируйте репозиторий**:
-   ```bash
-   git clone https://github.com/Katieolegovna/Repository.git
-   cd Repository
-   ```
+### Локальная установка
 
-2. **Установите зависимости**:
-   ```bash
-   pip install -r requirements.txt
-   ```
+#### Установка зависимостей
+```bash
+pip install -r requirements.txt
+```
 
-3. **Сгенерируйте данные** (опционально, если passenger_data.xlsx отсутствует):
-   ```bash
-   python generate_data.py
-   ```
+#### Генерация данных
+```bash
+python generate_data.py
+```
 
-4. **Запустите приложение**:
-   ```bash
-   streamlit run app.py
-   ```
+#### Запуск приложения
+```bash
+streamlit run app.py
+```
 
-5. **Откройте браузер**: Перейдите по адресу `http://localhost:8501`
+### Запуск в Docker
 
-> 💡 **Примечание**: Приложение использует кэширование для быстрой загрузки данных. Если измените данные, перезапустите приложение.
+#### Сборка образа
+```bash
+docker build -t airport-dashboard .
+```
 
-> 📸 **Фон**: Замените файл `assets/AirPlane.png` на ваше изображение самолета для фона приложения.
+#### Запуск контейнера
+```bash
+docker run -p 8501:8501 airport-dashboard
+```
+
+Приложение будет доступно по адресу: [http://localhost:8501](http://localhost:8501)
+
+### Docker Compose (рекомендуемый способ)
+
+```bash
+docker-compose up --build
+```
+
+Этот способ автоматически соберет образ и запустит контейнер с правильными настройками.
+
+---
+
+## 📝 Лицензия
+
+Этот проект распространяется под лицензией [MIT](LICENSE).
+
+---
+
+<div id="en-content" style="display: none;">
+# 🛫 Airport Passenger Flow Analysis
+### <i>Interactive dashboard with tables and charts based on passenger data</i>
+
+<br>
+
+[![Python](https://img.shields.io/badge/Python-3.9%2B-blue?logo=python)](https://python.org)
+[![Streamlit](https://img.shields.io/badge/Streamlit-1.50%2B-FF4B4B?logo=streamlit)](https://streamlit.io)
+[![Pandas](https://img.shields.io/badge/Pandas-2.3%2B-150458?logo=pandas)](https://pandas.pydata.org)
+[![Plotly](https://img.shields.io/badge/Plotly-6.3%2B-2962FF?logo=plotly)](https://plotly.com/python/)
+[![Docker](https://img.shields.io/badge/Docker-2.2%2B-2496ED?logo=docker&logoColor=white)](https://www.docker.com/)
+
+<br>
+
+## 📋 Project Description
+> <b>Demonstration of various table and chart variations for airport passenger flow analysis</b>
+
+Project includes:
+- Synthetic passenger data generation (dates, destinations, airlines, terminals, processing times)
+- Streamlit application with five tabs for different data display formats
+- Interactive filters and Excel export
+
+## ⚙️ Technologies Used
+
+| Component | Library/Tool | Purpose |
+|----------|--------------|---------|
+| <b>Programming Language</b> | <code>Python 3.9+</code> | Project foundation |
+| <b>Data Generation</b> | <code>pandas</code>, <code>numpy</code> | Synthetic data creation |
+| <b>Data Processing</b> | <code>pandas</code>, <code>openpyxl</code> | Excel read/write, data aggregation |
+| <b>Visualization</b> | <code>plotly.express</code>, <code>plotly.graph_objects</code> | Interactive charts |
+| <b>Interface</b> | <code>streamlit</code> | Web application with tables and filters |
+| <b>Containerization</b> | <code>docker</code> | Creating a container for the application |
+
+## 🚀 How to Run
+
+### Local Installation
+
+#### Install Dependencies
+```bash
+pip install -r requirements.txt
+```
+
+#### Generate Data
+```bash
+python generate_data.py
+```
+
+#### Run the Application
+```bash
+streamlit run app.py
+```
+
+### Docker Setup
+
+#### Build the Image
+```bash
+docker build -t airport-dashboard .
+```
+
+#### Run the Container
+```bash
+docker run -p 8501:8501 airport-dashboard
+```
+
+The application will be available at: [http://localhost:8501](http://localhost:8501)
+
+### Docker Compose (Recommended)
+
+```bash
+docker-compose up --build
+```
+
+This will automatically build the image and run the container with the correct settings.
+
+## 📝 License
+
+This project is licensed under the [MIT](LICENSE) license.
+</div>
+
+<script>
+function setLanguage(lang) {
+  if (lang === 'ru') {
+    document.getElementById('ru-content').style.display = 'block';
+    document.getElementById('en-content').style.display = 'none';
+    localStorage.setItem('preferredLanguage', 'ru');
+  } else {
+    document.getElementById('ru-content').style.display = 'none';
+    document.getElementById('en-content').style.display = 'block';
+    localStorage.setItem('preferredLanguage', 'en');
+  }
+  window.scrollTo(0, 0);
+}
+
+// Check for saved language preference or use browser language
+const userLang = localStorage.getItem('preferredLanguage') || 
+                 (navigator.language.startsWith('ru') ? 'ru' : 'en');
+setLanguage(userLang);
+</script>
+
+<style>
+#language-selector {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: white;
+  padding: 5px 10px;
+  border-radius: 15px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  z-index: 1000;
+}
+
+#language-selector a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+}
+
+#language-selector a:hover {
+  color: #FF4B4B;
+}
+</style>
